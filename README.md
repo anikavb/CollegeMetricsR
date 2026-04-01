@@ -1,8 +1,8 @@
-## **Collegemetricsr**
+## **CollegeMetricsR**
 
 ### **Proposal**
 
-The collegeMetricsR package is designed to simulate, analyze, and visualize relationships between student lifestyle habits and academic performance. The package focuses on key variables such as sleep, study time, stress levels, and extracurricular involvement, and provides tools to explore how these factors influence metrics such as GPA.
+The CollegeMetricsR package is designed to simulate, analyze, and visualize relationships between student lifestyle habits and academic performance. The package focuses on key variables such as sleep, study time, stress levels, and extracurricular involvement, and provides tools to explore how these factors influence metrics such as GPA.
 
 College students often havemultiple responsibilities, including academics, work, social life, and personal well-being. By understanding how these factors interact with one another, patterns can be identified that impact academic success and overall health.
 
