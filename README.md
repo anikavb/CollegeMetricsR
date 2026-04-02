@@ -63,3 +63,7 @@ The package will incorporate the following functions:
 -   **stress_impact(df)** – analyze the relationship between stress and GPA
 
 -   **predict_gpa(df, new_data)** – estimate GPA using a linear model based on selected variables
+
+Jericho's feedback: The rationale and plan for the package are excellent! The functions that you've proposed are all things you can implement in your package. As I talked about with y'all in Wednesday's class, if you are having users input their own data, your code will need to find a way to refine the dataset such that it can be generally worked on with the other functions in your package. This may involve tight standards for what data the user can input, or can allow for flexibility that the package would need to refine on the back end.
+
+After second glance at the dataset, I see that the dataset is synthetically generated (according to the Provenance section). This is totally fine to use on the package; however, if you were wanting to associate this with a real dataset, I found this following dataset related to student success metrics [here](https://data.mendeley.com/datasets/5b82ytz489/1). Aside from this, I see no major issues with this package idea. You all are good to go!
