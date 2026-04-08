@@ -3,7 +3,7 @@
 #' @return A dataframe of student data
 #' @export
 load_student_data <- function() {
-  student_data
+  df <- student_data
 }
 
 #' Clean student dataset
