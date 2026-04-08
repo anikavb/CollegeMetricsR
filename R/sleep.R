@@ -21,5 +21,17 @@ sleep_summary <- function(df) {
 #' @return Correlation coefficient
 #' @export
 sleep_study_relationship <- function(df) {
-  cor(df$Sleep_Hours, df$Hours_Studied, use = "complete.obs")
+  r <- cor(df$Sleep_Hours, df$Hours_Studied, use = "complete.obs")
+
+  interpretation <- if (r > 0.5) "strong positive correlation"
+  else if (r > 0.2)  "moderate positive correlation"
+  else if (r > -0.2) "little to no correlation"
+  else if (r > -0.5) "moderate negative correlation"
+  else               "strong negative correlation"
+
+  list(correlation = r, interpretation = interpretation)
 }
+
+sleep_study_relationship(student_data)
+
+
