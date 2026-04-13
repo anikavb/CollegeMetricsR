@@ -4,6 +4,7 @@
 #'   and adds a \code{gpa} column to the data frame.
 #' @param df A cleaned data frame with an \code{exam_score} column.
 #' @return The data frame with a new \code{gpa} column.
+#' @importFrom stats median sd
 #' @export
 #' @examples
 #' df_gpa <- scale_exam_score(student_data)

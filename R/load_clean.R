@@ -1,6 +1,7 @@
 #' Load student dataset
 #'
 #' @return A dataframe of student data
+#' @importFrom stats na.omit
 #' @export
 load_student_data <- function() {
   df <- student_data
