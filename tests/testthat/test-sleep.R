@@ -28,18 +28,31 @@ test_that("sleep_summary returns numeric values", {
 })
 
 test_that("sleep_study_relationship returns a list", {
-  result <- sleep_study_relationship(sample_df)
+  df <- data.frame(
+    Sleep_Hours = c(5, 6, 7),
+    Hours_Studied = c(1, 3, 2)
+  )
+  result <- sleep_study_relationship(df)
   expect_type(result, "list")
 })
 
 test_that("sleep_study_relationship has correlation and interpretation", {
-  result <- sleep_study_relationship(sample_df)
+  df <- data.frame(
+    Sleep_Hours = c(5, 6, 7),
+    Hours_Studied = c(1, 3, 2)
+  )
+  result <- sleep_study_relationship(df)
   expect_true("correlation"    %in% names(result))
   expect_true("interpretation" %in% names(result))
 })
 
-test_that("sleep_study_relationship correlation is between -1 and 1", {
-  result <- sleep_study_relationship(sample_df)
-  expect_gte(result$correlation, -1)
-  expect_lte(result$correlation,  1)
+test_that("correlation is between -1 and 1", {
+  df <- data.frame(
+    Sleep_Hours = c(5, 6, 7),
+    Hours_Studied = c(1, 3, 2)
+  )
+
+  result <- sleep_study_relationship(df)
+
+  expect_true(result >= -1 && result <= 1)
 })
