@@ -51,8 +51,7 @@ test_that("correlation is between -1 and 1", {
     Sleep_Hours = c(5, 6, 7),
     Hours_Studied = c(1, 3, 2)
   )
-
   result <- sleep_study_relationship(df)
-
-  expect_true(result >= -1 && result <= 1)
+  expect_gte(result$correlation, -1)
+  expect_lte(result$correlation,  1)
 })
