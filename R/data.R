@@ -6,16 +6,16 @@
 #'
 #' @format A data frame with the following columns:
 #' \describe{
-#'   \item{hours_studied}{Numeric. Average hours spent studying per week.}
-#'   \item{sleep_hours}{Numeric. Average hours of sleep per night.}
-#'   \item{stress_level}{Factor. Self-reported stress level (Low, Medium, High).}
-#'   \item{exam_score}{Numeric. Exam score out of 100.}
-#'   \item{extracurricular_activities}{Factor. Whether student participates (Yes/No).}
-#'   \item{parental_involvement}{Character. Level of parental involvement.}
-#'   \item{access_to_resources}{Character. Access to academic resources.}
-#'   \item{attendance}{Numeric. Percentage of classes attended.}
-#'   \item{motivation_level}{Character. Self-reported motivation level.}
-#'   \item{internet_access}{Character. Whether student has internet access.}
+#'   \item{Hours_Studied}{Numeric. Average hours spent studying per week.}
+#'   \item{Sleep_Hours}{Numeric. Average hours of sleep per night.}
+#'   \item{Stress_Level}{Factor. Self-reported stress level (Low, Medium, High).}
+#'   \item{Exam_Score}{Numeric. Exam score out of 100.}
+#'   \item{Extracurricular_Activities}{Factor. Whether student participates (Yes/No).}
+#'   \item{Parental_Involvement}{Character. Level of parental involvement.}
+#'   \item{Access_to_Resources}{Character. Access to academic resources.}
+#'   \item{Attendance}{Numeric. Percentage of classes attended.}
+#'   \item{Motivation_Level}{Character. Self-reported motivation level.}
+#'   \item{Internet_Access}{Character. Whether student has internet access.}
 #' }
 #' @source \url{https://www.kaggle.com/datasets/lainguyn123/student-performance-factors}
 "student_data"
