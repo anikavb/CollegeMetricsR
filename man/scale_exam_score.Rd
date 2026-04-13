@@ -18,5 +18,5 @@ and adds a \code{gpa} column to the data frame.
 }
 \examples{
 df_gpa <- scale_exam_score(student_data)
-head(df_gpa[, c("exam_score", "gpa")])
+head(df_gpa[, c("Exam_Score", "gpa")])
 }
