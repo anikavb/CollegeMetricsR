@@ -22,8 +22,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    stats, 
-    utils
+    stats
 URL: https://github.com/anikavb/CollegeMetricsR
 BugReports: https://github.com/anikavb/CollegeMetricsR/issues
 Suggests: 
