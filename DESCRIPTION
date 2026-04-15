@@ -11,7 +11,7 @@ Authors@R: c(
     person(
     "Anika", "Bhandari",
     email = "abhandari@smith.edu",
-    role = c("aut", "cre")
+    role = "aut"
     )
   )
 Description: Provides tools to load, clean, analyze, and visualize student lifestyle and academic performance data. 
