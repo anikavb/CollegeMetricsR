@@ -1,10 +1,8 @@
 ## **CollegeMetricsR**
 
-### **Proposal**
-
 The CollegeMetricsR package is designed to simulate, analyze, and visualize relationships between student lifestyle habits and academic performance. The package focuses on key variables such as sleep, study time, stress levels, and extracurricular involvement, and provides tools to explore how these factors influence metrics such as GPA.
 
-College students often havemultiple responsibilities, including academics, work, social life, and personal well-being. By understanding how these factors interact with one another, patterns can be identified that impact academic success and overall health.
+College students often have multiple responsibilities, including academics, work, social life, and personal well-being. By understanding how these factors interact with one another, patterns can be identified that impact academic success and overall health.
 
 While there are datasets on student life, there are a limited number of beginner-friendly tools that:
 
@@ -16,7 +14,7 @@ While there are datasets on student life, there are a limited number of beginner
 
 **CollegeMetricsR** aims to fill in this gap by providing a comprehensive set of functions that will help analyze student life data.
 
-### **Potential Data Set**
+### **Data Set**
 
 <https://www.kaggle.com/datasets/lainguyn123/student-performance-factors/code>
 
