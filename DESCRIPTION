@@ -1,19 +1,29 @@
 Package: CollegeMetricsR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analyze Student Lifestyle and Academic Performance Data
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Shreya", "Sen",
+      email = "ssen@smith.edu",
       role = c("aut", "cre")
+    ),
+    person(
+    "Anika", "Bhandari",
+    email = "abhandari@smith.edu",
+    role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: Provides tools to load, clean, analyze, and visualize student lifestyle and academic performance data. 
+    The package focuses on relationships between variables such as sleep, study time, stress levels, and exam scores. 
+    It enables users to explore patterns in student behavior, generate summary statistics, create visualizations, 
+    and build simple predictive models to understand academic outcomes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    stats, 
+    utils
 URL: https://github.com/anikavb/CollegeMetricsR
 BugReports: https://github.com/anikavb/CollegeMetricsR/issues
 Suggests: 
