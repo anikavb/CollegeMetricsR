@@ -1,0 +1,5 @@
+Hi Shreya and Anika,
+
+Thank you for the package! I think this is in a great place. You have all of the elements currently working. For the next checkpoint, adding more tasks to your package's functionality will be crucial.
+
+- The notes you all are getting are a result of using ggplot2. There are ways to circumvent these notes, as seen in this Stack Overflow article: https://stackoverflow.com/questions/9439256/how-can-i-handle-r-cmd-check-no-visible-binding-for-global-variable-notes-when
