@@ -1,17 +1,9 @@
-#' Load student dataset
+#' Load a cleaned student dataset
 #'
-#' @return A dataframe of student data
+#' @return A cleaned dataframe of student data
 #' @importFrom stats na.omit
 #' @export
 load_student_data <- function() {
   df <- student_data
-}
-
-#' Clean student dataset
-#'
-#' @param df A dataframe
-#' @return Cleaned dataframe
-#' @export
-clean_student_data <- function(df) {
-  na.omit(df)
+  df <- na.omit(df)
 }
