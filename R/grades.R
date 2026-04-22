@@ -11,6 +11,26 @@
 #' head(df_gpa[, c("Exam_Score", "gpa")])
 
 scale_exam_score <- function(df){
+
+  if (!is.data.frame(df)) {
+    stop("Please input a data frame.")
+  }
+
+  if (!"Exam_Score" %in% names(df)) {
+    stop("Data must contain an Exam_Score column.")
+  }
+
+  if (!is.numeric(df$Exam_Score)) {
+    stop("Exam_Score must be numeric.")
+  }
+
+  if (any(is.na(df$Exam_Score))) {
+    message("Missing values detected in Exam_Score; GPA will be calculated where possible.")
+  }
+
+  if (any(df$Exam_Score < 0 | df$Exam_Score > 100, na.rm = TRUE)) {
+    warning("Exam_Score values are typically between 0 and 100.")
+  }
   df$gpa <- (df$Exam_Score/100)*4
   return(df)
   }
@@ -26,6 +46,25 @@ scale_exam_score <- function(df){
 #' df_gpa <- scale_exam_score(student_data)
 #' grade_analysis(df_gpa)
 grade_analysis <- function(df) {
+
+  if (!is.data.frame(df)) {
+    stop("Please input a data frame.")
+  }
+
+  if (!"gpa" %in% names(df)) {
+    stop("Data must contain a gpa column. Run scale_exam_score() first.")
+  }
+
+  if (!is.numeric(df$gpa)) {
+    stop("gpa must be numeric.")
+  }
+
+  if (any(is.na(df$gpa))) {
+    message("Missing values detected in gpa; summary calculated using available data.")
+  }
+
+  message("Displaying gpa analysis for student data...")
+
   data.frame(
     mean_gpa   = mean(df$gpa, na.rm = TRUE),
     median_gpa = median(df$gpa, na.rm = TRUE),

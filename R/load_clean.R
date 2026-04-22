@@ -4,6 +4,5 @@
 #' @importFrom stats na.omit
 #' @export
 load_student_data <- function() {
-  df <- student_data
-  df <- na.omit(df)
+  na.omit(student_data)
 }
