@@ -2,13 +2,13 @@
 % Please edit documentation in R/load_clean.R
 \name{load_student_data}
 \alias{load_student_data}
-\title{Load student dataset}
+\title{Load a cleaned student dataset}
 \usage{
 load_student_data()
 }
 \value{
-A dataframe of student data
+A cleaned dataframe of student data
 }
 \description{
-Load student dataset
+Load a cleaned student dataset
 }
