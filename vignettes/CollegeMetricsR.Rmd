@@ -186,3 +186,54 @@ and motivation level as predictors. It is a simple linear model - the
 intention is to be able interpret the GPA rather than high predictive accuracy.
 
 ---
+
+## Step 7: Calculate Your Performance Score
+
+`performance_score()` combines key lifestyle variables into a single
+score between 0 and 100. Rather than looking at each variable separately,
+this gives you one number that reflects overall student performance.
+
+Each variable is normalized to a 0-1 scale to make them comparable, then
+weighted by importance:
+
+- GPA: 30%
+- Hours Studied: 25%
+- Attendance: 15%
+- Sleep Hours: 15%
+- Extracurriculars: 15%
+
+```{r performance-average}
+# Average student
+performance_score(
+  gpa             = 2.5,
+  hours_studied   = 15,
+  attendance      = 75,
+  sleep_hours     = 7,
+  extracurricular = "No"
+)
+```
+
+```{r performance-compare}
+# High achieving student
+performance_score(
+  gpa             = 3.8,
+  hours_studied   = 35,
+  attendance      = 95,
+  sleep_hours     = 8,
+  extracurricular = "Yes"
+)
+
+# Struggling student
+performance_score(
+  gpa             = 1.5,
+  hours_studied   = 5,
+  attendance      = 60,
+  sleep_hours     = 5,
+  extracurricular = "No"
+)
+```
+
+Notice how extracurricular participation can shift the score even when
+academic metrics are similar.
+
+---
