@@ -17,3 +17,95 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(CollegeMetricsR)
 ```
+
+## Introduction
+
+CollegeMetricsR is an R package designed to help users explore, analyze,
+and visualize the relationship between student lifestyle habits and academic
+performance. It is built around a real dataset of 6,607 students from Kaggle,
+containing variables such as sleep hours, study time, attendance, motivation
+level, and exam scores.
+
+The package is designed to be beginner-friendly.You do not need to write
+any data wrangling code yourself. The functions follow a natural pipeline
+from loading data all the way through to predicting GPA.
+
+This vignette walks through that full pipeline step by step.
+
+---
+
+## Step 1: Load the Data
+
+The dataset is built into the package as `student_data`. You can load a
+cleaned version of it using `load_student_data()`, which automatically
+removes any rows with missing values.
+
+```{r load}
+df <- load_student_data()
+nrow(df)
+head(df[, c("Hours_Studied", "Sleep_Hours", "Attendance",
+            "Motivation_Level", "Exam_Score")])
+```
+
+The dataset contains 20 variables covering lifestyle habits, personal
+background, and academic outcomes. For most functions in this package
+the key columns are `Hours_Studied`, `Sleep_Hours`, `Attendance`,
+`Previous_Scores`, `Motivation_Level`, and `Exam_Score`.
+
+---
+
+## Step 2: Convert Exam Scores to GPA
+
+Raw exam scores in this dataset run from 0 to 100. To make them easier
+to interpret, `scale_exam_score()` converts them to a GPA scale (0.0 to 4.0)
+using the formula `(Exam_Score / 100) * 4`.
+
+```{r gpa}
+df <- scale_exam_score(df)
+head(df[, c("Exam_Score", "gpa")])
+```
+
+This adds a new `gpa` column to the data frame which is used by several
+other functions downstream.
+
+---
+
+## Step 3: Explore Sleep Patterns
+
+### Summary statistics
+
+`sleep_summary()` returns the mean, median, and standard deviation of
+student sleep hours across the whole dataset.
+
+```{r sleep-summary}
+sleep_summary(df)
+```
+
+### Relationship between sleep and study time
+
+`sleep_study_relationship()` computes the Pearson correlation between
+sleep hours and hours studied, and gives a plain-language interpretation.
+
+```{r sleep-study}
+sleep_study_relationship(df)
+```
+
+A correlation close to 0 here would suggest that how much a student
+sleeps has little relationship with how much they study — students who
+study more are not necessarily sleeping less.
+
+---
+
+## Step 4: Summarize Grades
+
+`grade_analysis()` gives an overview of the GPA distribution across
+all students.
+
+```{r grades}
+grade_analysis(df)
+```
+
+This gives you a quick sense of where most students fall on the GPA
+scale and how much variation there is.
+
+---
