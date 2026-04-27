@@ -14,7 +14,7 @@
 #' @param sleep_hours Numeric. Average sleep hours per night.
 #' @param extracurricular Character. Whether you participate in
 #'   extracurriculars - "Yes" or "No".
-#' @return A single performance score between 0 and 100.
+#' @return A single performance score between 0 and 100, with suggestions on what to improve.
 #' @export
 #' @examples
 #' performance_score(
