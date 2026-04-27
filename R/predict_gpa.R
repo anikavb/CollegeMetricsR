@@ -53,15 +53,18 @@ predict_gpa <- function(hours_studied, sleep_hours,
     warning("previous_scores is typically between 0 and 100.")
   }
 
-  df <- student_data
+  df <- load_student_data()
   df <- scale_exam_score(df)
+
+  df$Motivation_Level <- factor(df$Motivation_Level, levels = c("Low", "Medium", "High"))
 
   new_data <- data.frame(
     Hours_Studied    = hours_studied,
     Sleep_Hours      = sleep_hours,
     Attendance       = attendance,
     Previous_Scores  = previous_scores,
-    Motivation_Level = motivation_level
+    Motivation_Level = factor(motivation_level, levels = c("Low", "Medium", "High")),
+    stringsAsFactors = FALSE
   )
 
   model <- lm(gpa ~ Hours_Studied + Sleep_Hours + Attendance +
