@@ -18,5 +18,6 @@ Scatterplot of hours studied against GPA with a
 trend line.
 }
 \examples{
-plot_study_vs_gpa(student_data)
+df_gpa <- scale_exam_score(student_data)
+plot_study_vs_gpa(df_gpa)
 }

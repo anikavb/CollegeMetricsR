@@ -31,7 +31,8 @@ plot_sleep_vs_gpa <- function(df) {
 #' @export
 #' @import ggplot2
 #' @examples
-#' plot_study_vs_gpa(student_data)
+#' df_gpa <- scale_exam_score(student_data)
+#' plot_study_vs_gpa(df_gpa)
 plot_study_vs_gpa <- function(df) {
   ggplot2::ggplot(df, ggplot2::aes(x = Hours_Studied, y = gpa)) +
     ggplot2::geom_point(alpha = 0.3, color = "purple") +
@@ -55,7 +56,8 @@ plot_study_vs_gpa <- function(df) {
 #' @export
 #' @import ggplot2
 #' @examples
-#' plot_relationship(student_data, "Motivation_Level", "gpa")
+#' df_gpa <- scale_exam_score(student_data)
+#' plot_relationship(df_gpa, "Attendance", "gpa")
 plot_relationship <- function(df, x_var, y_var) {
   if (!is.data.frame(df)) {
     stop("df must be a data frame.")

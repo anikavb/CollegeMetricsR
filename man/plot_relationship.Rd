@@ -21,5 +21,6 @@ Creates a flexible scatterplot that allows users to
 visualize the relationship between any two numeric variables, with a trend line.
 }
 \examples{
-plot_relationship(student_data, "Motivation_Level", "GPA")
+df_gpa <- scale_exam_score(student_data)
+plot_relationship(df_gpa, "Attendance", "gpa")
 }

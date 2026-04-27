@@ -123,16 +123,6 @@ plot_relationship(df, "Attendance", "gpa")
 In addition to the flexible plotting function, the package also includes
 predefined plots for common relationships.
 
-Study Time vs GPA
-
-```{r plot-study}
-plot_study_vs_gpa(df)
-```
-
-This plot focuses specifically on the relationship between study time
-and GPA, making it easy to interpret one of the most important factors
-in academic performance.
-
 Sleep vs GPA
 
 ```{r plot-sleep}
@@ -145,6 +135,17 @@ outcomes, complementing the numerical summaries from earlier steps.
 Together, these visualization functions allow users to both explore
 custom relationships and quickly analyze key patterns built into the
 package.
+
+Study Time vs GPA
+
+```{r plot-study}
+plot_study_vs_gpa(df)
+```
+
+This plot focuses specifically on the relationship between study time
+and GPA, making it easy to interpret one of the most important factors
+in academic performance.
+
 
 ---
 
