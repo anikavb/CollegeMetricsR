@@ -112,10 +112,9 @@ study more are not necessarily sleeping less.
 
 ## Step 5: Visualize Relationships
 
-`plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify
-the variables you want to compare.
+`plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify the variables you want to compare.
 
-```{r plot-basic}
+```{r plot-relationship}
 plot_relationship(df, "Attendance", "gpa")
 ```
 
@@ -126,7 +125,7 @@ predefined plots for common relationships.
 
 Study Time vs GPA
 
-```{r plot-basic}
+```{r plot-study}
 plot_study_vs_gpa(df)
 ```
 
@@ -136,7 +135,7 @@ in academic performance.
 
 Sleep vs GPA
 
-```{r plot-basic}
+```{r plot-sleep}
 plot_sleep_vs_gpa(df)
 ```
 

@@ -5,7 +5,6 @@
 \title{Predict GPA}
 \usage{
 predict_gpa(
-  df,
   hours_studied,
   sleep_hours,
   attendance,
@@ -14,9 +13,6 @@ predict_gpa(
 )
 }
 \arguments{
-\item{df}{A data frame with a \code{gpa} column. Run
-\code{scale_exam_score()} first.}
-
 \item{hours_studied}{Numeric. How many hours the student studies per week.}
 
 \item{sleep_hours}{Numeric. How many hours of sleep the student gets per night.}
@@ -35,11 +31,11 @@ Predicts a student's GPA based on their personal habits
 using a linear regression model trained on the full dataset.
 }
 \examples{
-df_gpa <- scale_exam_score(student_data)
-predict_gpa(df_gpa,
-            hours_studied   = 20,
-            sleep_hours     = 7,
-            attendance      = 85,
-            previous_scores = 75,
-            motivation_level = "Medium")
+predict_gpa(
+  hours_studied   = 20,
+  sleep_hours     = 7,
+  attendance      = 85,
+  previous_scores = 75,
+  motivation_level = "Medium"
+)
 }

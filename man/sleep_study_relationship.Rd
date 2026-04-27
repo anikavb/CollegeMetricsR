@@ -10,8 +10,8 @@ sleep_study_relationship(df)
 \item{df}{A dataframe}
 }
 \value{
-Correlation coefficient
+Correlation coefficient and interpretation
 }
 \description{
-Analyze relationship between sleep and study time
+Returns correlation coefficient between hours of sleep and hours spent studying, based on observations in a dataset.
 }

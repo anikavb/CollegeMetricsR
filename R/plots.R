@@ -10,8 +10,8 @@
 #' plot_sleep_vs_gpa(df_gpa)
 plot_sleep_vs_gpa <- function(df) {
   ggplot2::ggplot(df, ggplot2::aes(x = Sleep_Hours, y = gpa)) +
-    ggplot2::geom_point(alpha = 0.3, color = "steelblue") +
-    ggplot2::geom_smooth(method = "lm", color = "darkblue") +
+    ggplot2::geom_point(alpha = 0.3, color = "purple") +
+    ggplot2::geom_smooth(method = "lm", color = "darkviolet") +
     ggplot2::labs(
       title = "Sleep hours vs. GPA",
       x     = "Sleep hours per night",
@@ -86,12 +86,13 @@ plot_relationship <- function(df, x_var, y_var) {
   }
 
   ggplot2::ggplot(df, ggplot2::aes(x = .data[[x_var]], y = .data[[y_var]])) +
-    ggplot2::geom_point() +
-    ggplot2::geom_smooth(method = "lm") +
+    ggplot2::geom_point(alpha = 0.3, color = "purple") +
+    ggplot2::geom_smooth(method = "lm", color = "darkviolet") +
     ggplot2::labs(
       x = x_var,
       y = y_var,
       title = paste(x_var, "vs", y_var)
-    )
+    ) +
+    ggplot2::theme_minimal()
 }
 
