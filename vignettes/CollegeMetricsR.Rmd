@@ -182,7 +182,7 @@ predict_gpa(hours_studied    = 5,
 ```
 
 The model uses hours studied, sleep hours, attendance, previous scores,
-and motivation level as predictors. It is a simple linear model — the
-intention is interpretability rather than high predictive accuracy.
+and motivation level as predictors. It is a simple linear model - the
+intention is to be able interpret the GPA rather than high predictive accuracy.
 
 ---
