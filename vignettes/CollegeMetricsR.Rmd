@@ -110,7 +110,46 @@ study more are not necessarily sleeping less.
 
 ---
 
-## Step 5: Predict GPA
+## Step 5: Visualize Relationships
+
+`plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify
+the variables you want to compare.
+
+```{r plot-basic}
+plot_relationship(df, "Attendance", "gpa")
+```
+
+### Additional Visualization Functions
+
+In addition to the flexible plotting function, the package also includes
+predefined plots for common relationships.
+
+Study Time vs GPA
+
+```{r plot-basic}
+plot_study_vs_gpa(df)
+```
+
+This plot focuses specifically on the relationship between study time
+and GPA, making it easy to interpret one of the most important factors
+in academic performance.
+
+Sleep vs GPA
+
+```{r plot-basic}
+plot_sleep_vs_gpa(df)
+```
+
+This visualization highlights how sleep patterns may influence academic
+outcomes, complementing the numerical summaries from earlier steps.
+
+Together, these visualization functions allow users to both explore
+custom relationships and quickly analyze key patterns built into the
+package.
+
+---
+
+## Step 6: Predict GPA
 
 `predict_gpa()` trains a linear regression model on the full dataset
 and predicts GPA based on a new student's personal inputs. You just
