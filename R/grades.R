@@ -28,9 +28,6 @@ scale_exam_score <- function(df){
     message("Missing values detected in Exam_Score; GPA will be calculated where possible.")
   }
 
-  if (any(df$Exam_Score < 0 | df$Exam_Score > 100, na.rm = TRUE)) {
-    warning("Exam_Score values are typically between 0 and 100.")
-  }
   df$Exam_Score <- pmin(df$Exam_Score, 100)
   df$gpa <- (df$Exam_Score/100)*4
   return(df)

@@ -70,7 +70,21 @@ other functions downstream.
 
 ---
 
-## Step 3: Explore Sleep Patterns
+## Step 3: Summarize Grades
+
+`grade_analysis()` gives an overview of the GPA distribution across
+all students.
+
+```{r grades}
+grade_analysis(df)
+```
+
+This gives you a quick sense of where most students fall on the GPA
+scale and how much variation there is.
+
+---
+
+## Step 4: Explore Sleep Patterns
 
 ### Summary statistics
 
@@ -96,16 +110,40 @@ study more are not necessarily sleeping less.
 
 ---
 
-## Step 4: Summarize Grades
+## Step 5: Predict GPA
 
-`grade_analysis()` gives an overview of the GPA distribution across
-all students.
+`predict_gpa()` trains a linear regression model on the full dataset
+and predicts GPA based on a new student's personal inputs. You just
+provide your own values directly — no need to build a data frame.
 
-```{r grades}
-grade_analysis(df)
+```{r predict}
+predict_gpa(hours_studied    = 20,
+            sleep_hours      = 7,
+            attendance       = 85,
+            previous_scores  = 75,
+            motivation_level = "Medium")
 ```
 
-This gives you a quick sense of where most students fall on the GPA
-scale and how much variation there is.
+You can try different inputs to see how the prediction changes:
+
+```{r predict-compare}
+# High performing student
+predict_gpa(hours_studied    = 35,
+            sleep_hours      = 9,
+            attendance       = 98,
+            previous_scores  = 95,
+            motivation_level = "High")
+
+# Struggling student
+predict_gpa(hours_studied    = 5,
+            sleep_hours      = 4,
+            attendance       = 60,
+            previous_scores  = 45,
+            motivation_level = "Low")
+```
+
+The model uses hours studied, sleep hours, attendance, previous scores,
+and motivation level as predictors. It is a simple linear model — the
+intention is interpretability rather than high predictive accuracy.
 
 ---
