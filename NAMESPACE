@@ -2,6 +2,7 @@
 
 export(grade_analysis)
 export(load_student_data)
+export(performance_score)
 export(plot_relationship)
 export(plot_sleep_vs_gpa)
 export(plot_study_vs_gpa)
