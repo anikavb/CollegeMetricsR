@@ -55,7 +55,7 @@ plot_study_vs_gpa <- function(df) {
 #' @export
 #' @import ggplot2
 #' @examples
-#' plot_relationship(student_data, "Motivation_Level", "GPA")
+#' plot_relationship(student_data, "Motivation_Level", "gpa")
 plot_relationship <- function(df, x_var, y_var) {
   if (!is.data.frame(df)) {
     stop("df must be a data frame.")
