@@ -1,0 +1,4 @@
+-	Continue extending the functionality of your package by adding more functions. So far, everything looks polished (from your vignettes to your R files).
+-	To fix the “no visible binding” notes, you can add utils::globalVariables(c("put variable inside")) to the top of each R file that has this problem. Within the vector, you will add the variables (in character format) that are leading to the notes.
+-	Excellent job on the vignette! For the plots, I would fix up some of the text so that they are properly capitalized.
+-	I appreciate all of the details you have in your written-up parts. As mentioned earlier, you’ll just want to extend upon the functions you currently have.
