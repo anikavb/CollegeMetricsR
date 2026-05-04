@@ -1,9 +1,13 @@
+utils::globalVariables(c("Sleep_Hours", "gpa", "Hours_Studied", "student_data"))
 #' Plot Sleep Hours vs GPA
+#'
 #' @description Scatterplot of sleep hours against GPA with a trend line.
 #' @param df A data frame with \code{Sleep_Hours} and \code{gpa} columns.
 #' @return A ggplot object.
 #' @export
 #' @import ggplot2
+#' @importFrom stats lm predict
+#' @importFrom utils head
 #' @examples
 #' df_gpa <- scale_exam_score(student_data)
 #' plot_sleep_vs_gpa(df_gpa)

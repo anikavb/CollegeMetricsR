@@ -7,6 +7,7 @@
 #' @param previous_scores Numeric. The student's previous exam score (0-100).
 #' @param motivation_level Character. Motivation level - "Low", "Medium", or "High".
 #' @return A single predicted GPA value (0.0 - 4.0).
+#' @importFrom stats lm predict
 #' @export
 #' @examples
 #' predict_gpa(
