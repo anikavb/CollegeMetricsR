@@ -23,7 +23,8 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     stats,
-    ggplot2
+    ggplot2,
+    tools
 URL: https://github.com/anikavb/CollegeMetricsR
 BugReports: https://github.com/anikavb/CollegeMetricsR/issues
 Suggests: 

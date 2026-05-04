@@ -90,13 +90,20 @@ plot_relationship <- function(df, x_var, y_var) {
     stop(paste(y_var, "must be numeric for a scatterplot."))
   }
 
+  format_label <- function(var) {
+    label <- tools::toTitleCase(gsub("_", " ", var))
+    gsub("^Gpa$", "GPA", label)
+  }
+  x_label <- tools::toTitleCase(gsub("_", " ", x_var))
+  y_label <- tools::toTitleCase(gsub("_", " ", y_var))
+
   ggplot2::ggplot(df, ggplot2::aes(x = .data[[x_var]], y = .data[[y_var]])) +
     ggplot2::geom_point(alpha = 0.3, color = "purple") +
     ggplot2::geom_smooth(method = "lm", color = "darkviolet") +
     ggplot2::labs(
-      x = x_var,
-      y = y_var,
-      title = paste(x_var, "vs", y_var)
+      x = x_label,
+      y = y_label,
+      title = paste(x_label, "vs", y_label)
     ) +
     ggplot2::theme_minimal()
 }

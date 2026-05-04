@@ -115,7 +115,7 @@ study more are not necessarily sleeping less.
 `plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify the variables you want to compare.
 
 ```{r plot-relationship}
-plot_relationship(df, "Attendance", "gpa")
+plot_relationship(df, "Hours_Studied", "gpa")
 ```
 
 ### Additional Visualization Functions
