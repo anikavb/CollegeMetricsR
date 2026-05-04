@@ -1,63 +1,53 @@
-## **CollegeMetricsR**
 
-The CollegeMetricsR package is designed to simulate, analyze, and visualize relationships between student lifestyle habits and academic performance. The package focuses on key variables such as sleep, study time, stress levels, and extracurricular involvement, and provides tools to explore how these factors influence metrics such as GPA.
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-College students often have multiple responsibilities, including academics, work, social life, and personal well-being. By understanding how these factors interact with one another, patterns can be identified that impact academic success and overall health.
+# CollegeMetricsR
 
-While there are datasets on student life, there are a limited number of beginner-friendly tools that:
+<!-- badges: start -->
 
--   Structure student lifestyle data
+<!-- badges: end -->
 
--   Analyze relationships between variables
+The goal of CollegeMetricsR is to …
 
--   Give clear visualizations for interpretation
+## Installation
 
-**CollegeMetricsR** aims to fill in this gap by providing a comprehensive set of functions that will help analyze student life data.
+You can install the development version of CollegeMetricsR from
+[GitHub](https://github.com/) with:
 
-### **Data Set**
+``` r
+# install.packages("pak")
+pak::pak("anikavb/CollegeMetricsR")
+```
 
-<https://www.kaggle.com/datasets/lainguyn123/student-performance-factors/code>
+## Example
 
-The package will utilize a real-world dataset from Kaggle containing student performance factors, including study habits, sleep patterns, and external influences.
+This is a basic example which shows you how to solve a common problem:
 
-This dataset includes both numerical and categorical variables, such as hours studied, sleep
+``` r
+library(CollegeMetricsR)
+## basic example code
+```
 
-duration, parental involvement, and exam scores. Within the package, the data will be cleaned and transformed as needed to facilitate analysis of relationships between lifestyle factors and academic performance.
+What is special about using `README.Rmd` instead of just `README.md`?
+You can include R chunks like so:
 
-### **Functionality**
+``` r
+summary(cars)
+#>      speed           dist       
+#>  Min.   : 4.0   Min.   :  2.00  
+#>  1st Qu.:12.0   1st Qu.: 26.00  
+#>  Median :15.0   Median : 36.00  
+#>  Mean   :15.4   Mean   : 42.98  
+#>  3rd Qu.:19.0   3rd Qu.: 56.00  
+#>  Max.   :25.0   Max.   :120.00
+```
 
-This package will enable users to:
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this.
 
--   Explore student performance data
+You can also embed plots, for example:
 
--   Examine relationships between lifestyle variables and academic outcomes
+<img src="man/figures/README-pressure-1.png" alt="" width="100%" />
 
--   Summarize key patterns in student data
-
--   Visualize trends related to student performance across metrics
-
--   Estimate academic performance based on personal habits
-
-The package will incorporate the following functions:
-
--   **load_student_data(path)** – Loads the dataset from a specified file path
-
--   **clean_student_data(df)** – Cleans the dataset by handling missing values and formatting variables
-
--   **sleep_summary()** – Will summarise the average sleep hours and variability 
-
--   **sleep_study_relationship()** – Analyse the correlation between study time and the amount of sleep a student receives
-
--   **scale_exam_score(df) –** Converts exam scores into a GPA-like scale for easier interpretation
-
--   **grade_analysis()** – will summarize GPA/grades across students
-
--   **plot_sleep_vs_gpa(df)** – scatterplot of sleep vs GPA
-
--   **plot_stress_distribution(df)** – distribution of stress levels
-
--   **plot_study_vs_score(df)** – distribution of study time vs performance
-
--   **stress_impact(df)** – analyze the relationship between stress and GPA
-
--   **predict_gpa(df, new_data)** – estimate GPA using a linear model based on selected variables
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.

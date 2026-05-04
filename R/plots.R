@@ -1,5 +1,4 @@
 #' Plot Sleep Hours vs GPA
-#'
 #' @description Scatterplot of sleep hours against GPA with a trend line.
 #' @param df A data frame with \code{Sleep_Hours} and \code{gpa} columns.
 #' @return A ggplot object.

@@ -1,5 +1,4 @@
 #' Predict GPA
-#'
 #' @description Predicts a student's GPA based on their personal habits
 #'   using a linear regression model trained on the full dataset.
 #' @param hours_studied Numeric. How many hours the student studies per week.

@@ -70,7 +70,7 @@ lifestyle_summary <- function(df, vars = NULL) {
 #' @return A list with the correlation and interpretation.
 #' @export
 #' @examples
-#' student_correlation(df, "Sleep_Hours", "Hours_Studied")
+#' student_correlation(student_data, "Sleep_Hours", "Hours_Studied")
 student_correlation <- function(df, var1, var2) {
 
   if (!is.data.frame(df)) {

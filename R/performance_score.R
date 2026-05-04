@@ -62,7 +62,7 @@ performance_score <- function(gpa, hours_studied, attendance,
   # Performance message
   if (score >= 80) {
     message("Strong performance profile: well-balanced habits.")
-  } else if (score >= 60) {
+  } else if (score >= 50) {
     message("Moderate performance: some areas could be improved.")
   } else {
     message("Lower performance: consider improving study time, attendance, or sleep.")

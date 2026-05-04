@@ -21,5 +21,5 @@ Calculates the correlation between any two numeric
 variables in the student dataset and provides a simple interpretation.
 }
 \examples{
-student_correlation(df, "Sleep_Hours", "Hours_Studied")
+student_correlation(student_data, "Sleep_Hours", "Hours_Studied")
 }
