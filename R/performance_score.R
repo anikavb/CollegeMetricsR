@@ -14,7 +14,7 @@
 #' @param sleep_hours Numeric. Average sleep hours per night.
 #' @param extracurricular Character. Whether you participate in
 #'   extracurriculars - "Yes" or "No".
-#' @return A single performance score between 0 and 100, with suggestions on what to improve.
+#' @return A single performance score between 0 and 100, with suggestions on what to improve based on average metrics.
 #' @export
 #' @examples
 #' performance_score(
@@ -60,7 +60,7 @@ performance_score <- function(gpa, hours_studied, attendance,
   score <- round(pmin(pmax(score, 0), 100), 2)
 
   # Performance message
-  if (score >= 80) {
+  if (score >= 75) {
     message("Strong performance profile: well-balanced habits.")
   } else if (score >= 50) {
     message("Moderate performance: some areas could be improved.")

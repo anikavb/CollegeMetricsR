@@ -19,7 +19,7 @@ performance_score(gpa, hours_studied, attendance, sleep_hours, extracurricular)
 extracurriculars - "Yes" or "No".}
 }
 \value{
-A single performance score between 0 and 100, with suggestions on what to improve.
+A single performance score between 0 and 100, with suggestions on what to improve based on average metrics.
 }
 \description{
 Combines key student lifestyle variables into a single

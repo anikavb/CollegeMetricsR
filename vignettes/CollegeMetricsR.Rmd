@@ -18,27 +18,19 @@ knitr::opts_chunk$set(
 library(CollegeMetricsR)
 ```
 
-## Introduction
+## Overview
 
-CollegeMetricsR is an R package designed to help users explore, analyze,
-and visualize the relationship between student lifestyle habits and academic
-performance. It is built around a real dataset of 6,607 students from Kaggle,
-containing variables such as sleep hours, study time, attendance, motivation
-level, and exam scores.
+CollegeMetricsR is an R package designed to help users explore, analyze, and visualize the relationship between student lifestyle habits and academic performance. It is built around a real dataset of 6,607 students from Kaggle, containing variables such as sleep hours, study time, attendance, motivation level, and exam scores.
 
-The package is designed to be beginner-friendly.You do not need to write
-any data wrangling code yourself. The functions follow a natural pipeline
-from loading data all the way through to predicting GPA.
+The package is designed to be beginner-friendly. You do not need to write any data wrangling code yourself. The functions follow a natural pipeline from loading data all the way through to predicting scores.
 
-This vignette walks through that full pipeline step by step.
+This vignette walks through a complete analysis using the package's dataset and all of its core functions, in the order you would naturally use them: load and inspect, summarize, explore relationships, engineer features, identify standouts, and finally predict.
 
----
+------------------------------------------------------------------------
 
 ## Step 1: Load the Data
 
-The dataset is built into the package as `student_data`. You can load a
-cleaned version of it using `load_student_data()`, which automatically
-removes any rows with missing values.
+The dataset is built into the package as `student_data`. You can load a cleaned version of it using `load_student_data()`, which automatically removes any rows with missing values.
 
 ```{r load}
 df <- load_student_data()
@@ -47,72 +39,80 @@ head(df[, c("Hours_Studied", "Sleep_Hours", "Attendance",
             "Motivation_Level", "Exam_Score")])
 ```
 
-The dataset contains 20 variables covering lifestyle habits, personal
-background, and academic outcomes. For most functions in this package
-the key columns are `Hours_Studied`, `Sleep_Hours`, `Attendance`,
-`Previous_Scores`, `Motivation_Level`, and `Exam_Score`.
+The dataset contains 20 variables covering lifestyle habits, personal background, and academic outcomes. For most functions in this package the key columns are `Hours_Studied`, `Sleep_Hours`, `Attendance`, `Previous_Scores`, `Motivation_Level`, and `Exam_Score`.
 
----
+------------------------------------------------------------------------
 
 ## Step 2: Convert Exam Scores to GPA
 
-Raw exam scores in this dataset run from 0 to 100. To make them easier
-to interpret, `scale_exam_score()` converts them to a GPA scale (0.0 to 4.0)
-using the formula `(Exam_Score / 100) * 4`.
+Raw exam scores in this dataset run from 0 to 100. To make them easier to interpret, `scale_exam_score()` converts them to a GPA scale (0.0 to 4.0) using the formula `(Exam_Score / 100) * 4`.
 
 ```{r gpa}
 df <- scale_exam_score(df)
 head(df[, c("Exam_Score", "gpa")])
 ```
 
-This adds a new `gpa` column to the data frame which is used by several
-other functions downstream.
+This adds a new `gpa` column to the data frame which is used by several other functions downstream.
 
----
+------------------------------------------------------------------------
 
-## Step 3: Summarize Grades
+## Step 3: Summarize Lifestyle Variables
 
-`grade_analysis()` gives an overview of the GPA distribution across
-all students.
+Before exploring relationships, it helps to understand the distribution of each variable. `lifestyle_summary()` computes mean, median, standard deviation, min, max, and a missing-value count for all numeric columns at once.
+
+```{r lifestyle-summary}
+lifestyle_summary(df)
+```
+
+You can also pass a `vars` argument to focus on specific columns:
+
+```{r lifestyle-summary-vars}
+lifestyle_summary(df, vars = c("Hours_Studied", "Sleep_Hours", "Exam_Score", "Attendance"))
+```
+
+### Additional Quick Summaries
+
+The package provides convenient functions for two commonly examined distributions in student data.
+
+`grade_analysis()` gives a quick overview of the GPA distribution across all students.
 
 ```{r grades}
 grade_analysis(df)
 ```
 
-This gives you a quick sense of where most students fall on the GPA
-scale and how much variation there is.
+This gives you a quick sense of where most students fall on the GPA scale and how much variation there is.
 
----
-
-## Step 4: Explore Sleep Patterns
-
-### Summary statistics
-
-`sleep_summary()` returns the mean, median, and standard deviation of
-student sleep hours across the whole dataset.
+`sleep_summary()` returns the mean, median, and standard deviation of student sleep hours across the whole dataset.
 
 ```{r sleep-summary}
 sleep_summary(df)
 ```
 
-### Relationship between sleep and study time
+------------------------------------------------------------------------
 
-`sleep_study_relationship()` computes the Pearson correlation between
-sleep hours and hours studied, and gives a plain-language interpretation.
+## Step 4: Explore correlations between variables
+
+`variable_correlation()` calculates the correlation between any two numeric variables in the dataset. It returns the correlation coefficient along with a clear, plain-language interpretation of the strength and direction of the relationship.
+
+```{r correlation-study-gpa}
+student_correlation(df, "Hours_Studied", "gpa")
+```
+
+This enables users to see at a glance which lifestyle factors are most strongly associated with exam outcomes.
+
+For specificity, `sleep_study_relationship()` computes the correlation between sleep hours and hours studied, and gives a plain-language interpretation.
 
 ```{r sleep-study}
 sleep_study_relationship(df)
 ```
 
-A correlation close to 0 here would suggest that how much a student
-sleeps has little relationship with how much they study — students who
-study more are not necessarily sleeping less.
+A correlation close to 0 here would suggest that how much a student sleeps has little relationship with how much they study — students who study more are not necessarily sleeping less.
 
----
+------------------------------------------------------------------------
 
 ## Step 5: Visualize Relationships
 
-`plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify the variables you want to compare.
+To visually interpret the correlations above, `plot_relationship()` lets you plot any two numeric variables against each other without writing any ggplot2 code yourself. You simply specify the variables you want to compare.
 
 ```{r plot-relationship}
 plot_relationship(df, "Hours_Studied", "gpa")
@@ -120,40 +120,31 @@ plot_relationship(df, "Hours_Studied", "gpa")
 
 ### Additional Visualization Functions
 
-In addition to the flexible plotting function, the package also includes
-predefined plots for common relationships.
+In addition to the flexible plotting function, the package also includes predefined plots for common relationships.
 
-Sleep vs GPA
+**Sleep vs GPA**
 
 ```{r plot-sleep}
 plot_sleep_vs_gpa(df)
 ```
 
-This visualization highlights how sleep patterns may influence academic
-outcomes, complementing the numerical summaries from earlier steps.
+This visualization highlights how sleep patterns may influence academic outcomes, complementing the numerical summaries from earlier steps.
 
-Together, these visualization functions allow users to both explore
-custom relationships and quickly analyze key patterns built into the
-package.
-
-Study Time vs GPA
+**Study Time vs GPA**
 
 ```{r plot-study}
 plot_study_vs_gpa(df)
 ```
 
-This plot focuses specifically on the relationship between study time
-and GPA, making it easy to interpret one of the most important factors
-in academic performance.
+This plot focuses specifically on the relationship between study time and GPA, making it easy to interpret one of the most important factors in academic performance.
 
+Together, these visualization functions allow users to both explore custom relationships and quickly analyze key patterns built into the package.
 
----
+------------------------------------------------------------------------
 
 ## Step 6: Predict GPA
 
-`predict_gpa()` trains a linear regression model on the full dataset
-and predicts GPA based on a new student's personal inputs. You just
-provide your own values directly — no need to build a data frame.
+`predict_gpa()` trains a linear regression model on the full dataset and predicts GPA based on a new student's personal inputs. You just provide your own values directly, no need to build a data frame.
 
 ```{r predict}
 predict_gpa(hours_studied    = 20,
@@ -181,30 +172,26 @@ predict_gpa(hours_studied    = 5,
             motivation_level = "Low")
 ```
 
-The model uses hours studied, sleep hours, attendance, previous scores,
-and motivation level as predictors. It is a simple linear model - the
-intention is to be able interpret the GPA rather than high predictive accuracy.
+The model uses hours studied, sleep hours, attendance, previous scores, and motivation level as predictors. It is a simple linear model - the intention is to be able interpret the GPA rather than high predictive accuracy.
 
----
+------------------------------------------------------------------------
 
 ## Step 7: Calculate Your Performance Score
 
-`performance_score()` combines key lifestyle variables into a single
-score between 0 and 100. It also prints a performance message and
-personalised suggestions based on your inputs.
+`performance_score()` combines key lifestyle variables into a single score between 0 and 100. It also prints a performance message and personalised suggestions based on your inputs.
 
 Weights used:
 
-- GPA: 30%
-- Hours Studied: 25%
-- Attendance: 15%
-- Sleep Hours: 15%
-- Extracurriculars: 15%
+-   GPA: 30%
+-   Hours Studied: 25%
+-   Attendance: 15%
+-   Sleep Hours: 15%
+-   Extracurriculars: 15%
 
 ```{r performance-average}
 # Average student
 performance_score(
-  gpa             = 2.5,
+  gpa             = 2.7,
   hours_studied   = 15,
   attendance      = 75,
   sleep_hours     = 7,
@@ -234,7 +221,30 @@ performance_score(
 )
 ```
 
-The function not only returns a score but also prints tailored suggestions
-so users know exactly which habits to improve.
+The composite score gives a more rounded picture of each student than a single exam result alone. The function not only returns a score but also prints tailored suggestions based on average metrics, so users know exactly which habits to improve.
 
----
+------------------------------------------------------------------------
+
+## Step 8: Identify top and bottom performers
+
+`top_performers()` returns the top `n` students ranked by any numeric column, with a `rank` column prepended. This allows users to analyze the overall profile of the top students for a given metric.
+
+By default, it ranks students by `Exam_Score`.
+
+```{r top-exam}
+top_performers(df, n = 5)
+```
+
+Say you wanted to explore by `Hours_Studied`:
+
+```{r top-study}
+top_performers(df, n = 5, metric = "Hours_Studied")
+```
+
+This can help users explore what characteristics are common among high-performing students.
+
+## Conclusion
+
+**CollegeMetricsR** provides a simple workflow for analyzing student performance data. Users can load and prepare data, summarize lifestyle variables, visualize relationships, calculate correlations, predict GPA, compute a performance score, and identify top performers.\
+\
+The package is designed to be beginner-friendly and interpretable. Future improvements could include more advanced modeling, additional datasets, and more personalized recommendations.
