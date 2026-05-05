@@ -3,13 +3,14 @@ test_that("lifestyle_summary summarizes default variables", {
     Hours_Studied = c(10, 20, 30),
     Sleep_Hours = c(6, 7, 8),
     Exam_Score = c(70, 80, 90),
+    Attendance = c(50, 60, 70),
     gpa = c(2.8, 3.2, 3.6)
   )
 
   result <- lifestyle_summary(df)
 
   expect_true(is.data.frame(result))
-  expect_equal(nrow(result), 4)
+  expect_equal(nrow(result), 5)
   expect_true(all(c("variable", "mean", "median", "sd", "min", "max", "n_missing") %in% names(result)))
 })
 
@@ -32,6 +33,7 @@ test_that("lifestyle_summary calculates correct mean", {
     Hours_Studied = c(10, 20, 30),
     Sleep_Hours = c(6, 7, 8),
     Exam_Score = c(70, 80, 90),
+    Attendance = c(50, 60, 70),
     gpa = c(2.8, 3.2, 3.6)
   )
 

@@ -67,7 +67,7 @@ lifestyle_summary(df)
 You can also pass a `vars` argument to focus on specific columns:
 
 ```{r lifestyle-summary-vars}
-lifestyle_summary(df, vars = c("Hours_Studied", "Sleep_Hours", "Exam_Score", "Attendance"))
+lifestyle_summary(df, vars = c("Hours_Studied", "Attendance"))
 ```
 
 ### Additional Quick Summaries

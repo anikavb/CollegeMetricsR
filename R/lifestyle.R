@@ -19,7 +19,7 @@ lifestyle_summary <- function(df, vars = NULL) {
     stop("df must be a data frame.")
   }
 
-  default_vars <- c("Hours_Studied", "Sleep_Hours", "Exam_Score", "gpa")
+  default_vars <- c("Hours_Studied", "Sleep_Hours", "Exam_Score", "Attendance", "gpa")
 
   if (is.null(vars)) {
     vars <- default_vars
