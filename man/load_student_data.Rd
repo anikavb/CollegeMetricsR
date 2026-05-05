@@ -10,5 +10,5 @@ load_student_data()
 A cleaned dataframe of student data
 }
 \description{
-Load a cleaned student dataset
+This function cleans our in-built dataset and removes any missing values or N/As
 }
