@@ -225,7 +225,7 @@ The composite score gives a more rounded picture of each student than a single e
 
 ------------------------------------------------------------------------
 
-## Step 8: Identify top and bottom performers
+## Step 8: Identify top performers
 
 `top_performers()` returns the top `n` students ranked by any numeric column, with a `rank` column prepended. This allows users to analyze the overall profile of the top students for a given metric.
 
